@@ -211,7 +211,7 @@ export default function MovieStreamPage() {
     faq: useRef(null),
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
@@ -236,6 +236,7 @@ export default function MovieStreamPage() {
       });
     };
   }, []);
+  */
 
   return (
     <div className="page-container">
