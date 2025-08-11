@@ -442,6 +442,8 @@ const ProductPage = ({ onLogout }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredMovies, setFilteredMovies] = useState(movies);
 
+  window.thriveStack.setUser("{User_Id}", "{User_Email}");
+  window.thriveStack.setGroup("{Group_Id}", "{Group_Domain}", "{Group_Name}");
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
