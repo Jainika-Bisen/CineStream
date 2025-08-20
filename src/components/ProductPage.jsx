@@ -453,6 +453,20 @@ const ProductPage = ({ onLogout }) => {
     );
     setFilteredMovies(matches);
   };
+  window.thriveStack.track([{
+        "event_name": "signed_up",
+        "properties": {
+            "user_email": "john.doe@acme.xyz",
+            "user_name": "John Doe",
+            "utm_campaign": "customer_success",
+            "utm_medium": "referral",
+            "utm_source": "twitter",
+            "utm_term": "free_trial"
+        },
+        "user_id": "18f716ac-37a4-464f-adb7-3cc30032308c",
+        "timestamp": "2025-08-20T18:50:52.669Z"
+    }]);
+    
 
   return (
     <div className="product-container">
