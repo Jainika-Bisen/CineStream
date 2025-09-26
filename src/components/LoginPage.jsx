@@ -16,7 +16,7 @@ const LoginPage = ({ onLogin }) => {
       /* eg: thriveStack.setUser("18f716ac-37a4-464f-adb7-3cc30032308c","john.doe@acme.xyz");*/
       /* eg: thriveStack.setGroup("ac8db7ba-5139-4911-ba6e-523fd9c4704b", "acme.com","Acme Corporation");*/
       /* eg: thriveStack.setUser("18f716ac-37a4-464f-adb7-3cc30032308c","john.doe@acme.xyz");*/
-      window.thriveStack.reportEmailAbuse("{User_Email}");
+      window.thriveStack.reportEmailAbuse(email);
       /* eg: thriveStack.setUser("john.doe@acme.xyz");*/
       navigate('/product');
       onLogin();
