@@ -466,6 +466,36 @@ const ProductPage = ({ onLogout }) => {
         "user_id": "18f716ac-37a4-464f-adb7-3cc30032308c",
         "timestamp": "2025-10-01T13:07:08.186Z"
     }]);
+
+
+    window.thriveStack.track([{
+        "event_name": "account_created",
+        "properties": {
+            "account_domain": "acme.xyz",
+            "account_id": "ac8db7ba-5139-4911-ba6e-523fd9c4704b",
+            "account_name": "Acme"
+        },
+        "user_id": "18f716ac-37a4-464f-adb7-3cc30032308c",
+        "timestamp": "2025-10-01T13:09:21.078Z",
+        "context": {
+            "group_id": "ac8db7ba-5139-4911-ba6e-523fd9c4704b"  // Ensure this matches the account_id used in the event_name
+        }
+    }]);
+    
+
+    window.thriveStack.track([{
+        "event_name": "account_added_user",
+        "properties": {
+            "account_name": "Acme",
+            "user_email": "john.doe@acme.xyz"
+        },
+        "user_id": "18f716ac-37a4-464f-adb7-3cc30032308c",
+        "timestamp": "2025-10-01T13:10:53.222Z",
+        "context": {
+            "group_id": "ac8db7ba-5139-4911-ba6e-523fd9c4704b"
+        }
+    }]);
+      
     
     
 
