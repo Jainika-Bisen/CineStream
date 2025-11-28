@@ -444,25 +444,6 @@ const ProductPage = ({ onLogout }) => {
 
   window.thriveStack.setUser("18f716ac-37a4-464f-adb7-3cc30032308c", "{User_Email}");
   window.thriveStack.setGroup("{Group_Id}", "{Group_Domain}", "{Group_Name}");
-  thriveStack.track([{
-        "event_name": "invite_sent",
-        "properties": {
-            "feature_name": "report",
-            "invitee_email": "jane.doe@acme.xyz",
-            "invitee_role": "Admin",
-            "invitee_role_id": "ADMIN",
-            "invitee_team_id": "6d56db83-509d-4764-a929-ab886ff929e0",
-            "invitee_team": "Finance Team",
-            "invitee_user_id": "ed1adb3a-9772-48ef-b620-e5e6d438fb82",
-            "sub_feature_name": "export_report",
-            "source_url": "https://yourDomainName.com/dashboard"
-        },
-        "user_id": "18f716ac-37a4-464f-adb7-3cc30032308c",
-        "timestamp": "2025-11-28T10:28:29.587Z",
-        "context": {
-            "group_id": "ac8db7ba-5139-4911-ba6e-523fd9c4704b"
-        }
-    }]);
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
