@@ -521,9 +521,65 @@ const ProductPage = ({ onLogout }) => {
 
       {/* Navigation Buttons */}
       <div style={{ margin: '20px 0', display: 'flex', gap: '10px' }}>
-        <button onClick={() => navigate('/about')}>About</button>
-        <button onClick={() => navigate('/contact')}>Contact</button>
-        <button onClick={() => navigate('/favorites')}>My Favorites</button>
+        <button 
+          onClick={() => {
+            window.thriveStack.track([{
+              event_name: "feature_used",
+              properties: {
+                feature_name: "navigate_about",
+                user_role: "admin"
+              },
+              user_id: "18f716ac-37a4-464f-adb7-3cc30032308c",
+              timestamp: "2025-11-28T09:58:21.086Z",
+              context: {
+                group_id: "ac8db7ba-5139-4911-ba6e-523fd9c4704b"
+              }
+            }]);
+            navigate('/about');
+          }}
+        >
+          About
+        </button>
+
+        <button 
+          onClick={() => {
+            window.thriveStack.track([{
+              event_name: "feature_used",
+              properties: {
+                feature_name: "navigate_contact",
+                user_role: "admin"
+              },
+              user_id: "18f716ac-37a4-464f-adb7-3cc30032308c",
+              timestamp: "2025-11-28T09:58:21.086Z",
+              context: {
+                group_id: "ac8db7ba-5139-4911-ba6e-523fd9c4704b"
+              }
+            }]);
+            navigate('/contact');
+          }}
+        >
+          Contact
+        </button>
+
+        <button 
+          onClick={() => {
+            window.thriveStack.track([{
+              event_name: "feature_used",
+              properties: {
+                feature_name: "navigate_my_favorites",
+                user_role: "admin"
+              },
+              user_id: "18f716ac-37a4-464f-adb7-3cc30032308c",
+              timestamp: "2025-11-28T09:58:21.086Z",
+              context: {
+                group_id: "ac8db7ba-5139-4911-ba6e-523fd9c4704b"
+              }
+            }]);
+            navigate('/favorites');
+          }}
+        >
+          My Favorites
+        </button>
       </div>
 
       {/* Movie List */}
