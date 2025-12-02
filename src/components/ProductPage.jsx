@@ -544,8 +544,7 @@ const ProductPage = ({ onLogout }) => {
         <button 
           onClick={() => {
             window.thriveStack.track([{
-            "event_name": "contact feature used",
-            // Properties can be any key-value pairs - these are just examples
+            "event_name": "contact_feature_used",
             "properties": {
                 "completion_status": "completed",
                 "user_role": "admin"
@@ -565,8 +564,7 @@ const ProductPage = ({ onLogout }) => {
         <button 
           onClick={() => {
             window.thriveStack.track([{
-            "event_name": "fav feature used",
-            // Properties can be any key-value pairs - these are just examples
+            "event_name": "fav_feature_used",
             "properties": {
                 "completion_status": "completed",
                 "user_role": "admin"
