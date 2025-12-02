@@ -544,13 +544,14 @@ const ProductPage = ({ onLogout }) => {
         <button 
           onClick={() => {
             window.thriveStack.track([{
-            "event_name": "Contact feature used",
+            "event_name": "contact feature used",
+            // Properties can be any key-value pairs - these are just examples
             "properties": {
                 "completion_status": "completed",
                 "user_role": "admin"
             },
             "user_id": "18f716ac-37a4-464f-adb7-3cc30032308c",
-            "timestamp": "2025-12-02T09:48:15.566Z",
+            "timestamp": "2025-12-02T09:52:46.331Z",
             "context": {
                 "group_id": "ac8db7ba-5139-4911-ba6e-523fd9c4704b"
             }
@@ -564,17 +565,18 @@ const ProductPage = ({ onLogout }) => {
         <button 
           onClick={() => {
             window.thriveStack.track([{
-              event_name: "feature_used",
-              properties: {
-                feature_name: "navigate_my_favorites",
-                user_role: "admin"
-              },
-              user_id: "18f716ac-37a4-464f-adb7-3cc30032308c",
-              timestamp: "2025-11-28T09:58:21.086Z",
-              context: {
-                group_id: "ac8db7ba-5139-4911-ba6e-523fd9c4704b"
-              }
-            }]);
+            "event_name": "fav feature used",
+            // Properties can be any key-value pairs - these are just examples
+            "properties": {
+                "completion_status": "completed",
+                "user_role": "admin"
+            },
+            "user_id": "18f716ac-37a4-464f-adb7-3cc30032308c",
+            "timestamp": "2025-12-02T09:53:48.101Z",
+            "context": {
+                "group_id": "ac8db7ba-5139-4911-ba6e-523fd9c4704b"
+            }
+          }]);
             navigate('/favorites');
           }}
         >
