@@ -25,12 +25,12 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-  <script src="https://d3cgzwt0fb6o2k.cloudfront.net/latest/thrivestack.js" api-key="AWM8hxQwtJbkZpA67f2WdHH1dTGGDyvX+qI6/+MfzGY=" 
+  <!-- <script src="https://d3cgzwt0fb6o2k.cloudfront.net/latest/thrivestack.js" api-key="AWM8hxQwtJbkZpA67f2WdHH1dTGGDyvX+qI6/+MfzGY=" 
   source="marketing">
   </script>
   <script src="https://d3cgzwt0fb6o2k.cloudfront.net/latest/thrivestack.js" api-key="AWM8hxQwtJbkZpA67f2WdHH1dTGGDyvX+qI6/+MfzGY=" 
   source="product">
-  </script>
+  </script> -->
     <!-- <script src="https://ts-script.app.thrivestack.ai/latest/thrivestack.js" api-key="Q9TuJ4MQ7W66kRaesNmh4zXeZC0hKf5GLTOGR/z/9SA=" 
       source="marketing">
     </script> -->
@@ -48,5 +48,32 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      // ThriveStack API Integration
+      function sendThriveStackEvent(eventData) {
+        fetch('https://api.thrivestack.ai/v1/events', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': 'Si2vcmAwx2LatVWjnm6R0xpX4WHQUClH9Jhqj0lGd0g='
+          },
+          body: JSON.stringify(eventData)
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          console.log('ThriveStack event sent successfully:', data);
+        })
+        .catch(error => {
+          console.error('Error sending ThriveStack event:', error);
+        });
+      }
+
+      window.sendThriveStackEvent = sendThriveStackEvent;
+    </script>
   </body>
 </html>

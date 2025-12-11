@@ -442,8 +442,8 @@ const ProductPage = ({ onLogout }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredMovies, setFilteredMovies] = useState(movies);
 
-  window.thriveStack.setUser("18f716ac-37a4-464f-adb7-3cc30032308c", "{User_Email}");
-  window.thriveStack.setGroup("{Group_Id}", "{Group_Domain}", "{Group_Name}");
+  //.      window.thriveStack.setUser("18f716ac-37a4-464f-adb7-3cc30032308c", "{User_Email}");
+  //.      window.thriveStack.setGroup("{Group_Id}", "{Group_Domain}", "{Group_Name}");
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
@@ -453,7 +453,7 @@ const ProductPage = ({ onLogout }) => {
     );
     setFilteredMovies(matches);
   };
-  window.thriveStack.track([{
+  /*.      window.thriveStack.track([{
         "event_name": "signed_up",
         "properties": {
             "user_email": "john.doe@acme.xyz",
@@ -494,7 +494,7 @@ const ProductPage = ({ onLogout }) => {
         "context": {
             "group_id": "ac8db7ba-5139-4911-ba6e-523fd9c4704b"
         }
-    }]);
+    }]);*/
       
     
     
@@ -523,7 +523,7 @@ const ProductPage = ({ onLogout }) => {
       <div style={{ margin: '20px 0', display: 'flex', gap: '10px' }}>
         <button 
           onClick={() => {
-            window.thriveStack.track([{
+            /*.      window.thriveStack.track([{
             "event_name": "about_feature_used",
             "properties": {
                 "completion_status": "completed",
@@ -553,7 +553,7 @@ const ProductPage = ({ onLogout }) => {
           "context": {
               "group_id": "ac8db7ba-5139-4911-ba6e-523fd9c4704b"
           }
-          }]);
+          }]);*/
             navigate('/about');
           }}
         >
@@ -562,7 +562,7 @@ const ProductPage = ({ onLogout }) => {
 
         <button 
           onClick={() => {
-            window.thriveStack.track([{
+            /*.      window.thriveStack.track([{
             "event_name": "contact_feature_used",
             "properties": {
                 "completion_status": "completed",
@@ -573,7 +573,7 @@ const ProductPage = ({ onLogout }) => {
             "context": {
                 "group_id": "ac8db7ba-5139-4911-ba6e-523fd9c4704b"
             }
-          }]);
+          }]);*/
             navigate('/contact');
           }}
         >
@@ -582,7 +582,7 @@ const ProductPage = ({ onLogout }) => {
 
         <button 
           onClick={() => {
-            window.thriveStack.track([{
+            /*.      window.thriveStack.track([{
             "event_name": "fav_feature_used",
             "properties": {
                 "completion_status": "completed",
@@ -593,7 +593,7 @@ const ProductPage = ({ onLogout }) => {
             "context": {
                 "group_id": "ac8db7ba-5139-4911-ba6e-523fd9c4704b"
             }
-          }]);
+          }]);*/
             navigate('/favorites');
           }}
         >
