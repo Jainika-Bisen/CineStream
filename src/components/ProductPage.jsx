@@ -444,6 +444,95 @@ const ProductPage = ({ onLogout }) => {
 
   //.      window.thriveStack.setUser("18f716ac-37a4-464f-adb7-3cc30032308c", "{User_Email}");
   //.      window.thriveStack.setGroup("{Group_Id}", "{Group_Domain}", "{Group_Name}");
+
+  // Track page visit on component mount
+  useEffect(() => {
+    const trackPageVisit = async () => {
+      // Get or generate session ID
+      let sessionId = sessionStorage.getItem('thrivestack_session_id');
+      if (!sessionId) {
+        sessionId = 'session_' + Math.random().toString(36).substring(2, 15);
+        sessionStorage.setItem('thrivestack_session_id', sessionId);
+      }
+
+      // Get or generate device ID
+      let deviceId = localStorage.getItem('thrivestack_device_id');
+      if (!deviceId) {
+        deviceId = Math.random().toString(36).substring(2, 10);
+        localStorage.setItem('thrivestack_device_id', deviceId);
+      }
+
+      // Get page information
+      const pageTitle = document.title || 'React App';
+      const pageUrl = window.location.href;
+      const pagePath = window.location.pathname;
+      const pageReferrer = document.referrer || '';
+      const language = navigator.language || 'en-GB';
+
+      // Get UTM parameters from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmCampaign = urlParams.get('utm_campaign') || null;
+      const utmMedium = urlParams.get('utm_medium') || null;
+      const utmSource = urlParams.get('utm_source') || null;
+      const utmTerm = urlParams.get('utm_term') || null;
+      const utmContent = urlParams.get('utm_content') || null;
+
+      const eventData = [{
+        "event_name": "page_visit",
+        "properties": {
+          "page_title": pageTitle,
+          "page_url": pageUrl,
+          "page_path": pagePath,
+          "page_referrer": pageReferrer,
+          "language": language,
+          "ip_address": "",
+          "city": "",
+          "region": "",
+          "country": "",
+          "postal": "",
+          "loc": "",
+          "timezone": Intl.DateTimeFormat().resolvedOptions().timeZone || "",
+          "utm_campaign": utmCampaign,
+          "utm_medium": utmMedium,
+          "utm_source": utmSource,
+          "utm_term": utmTerm,
+          "utm_content": utmContent
+        },
+        "user_id": "18f716ac-37a4-464f-adb7-3cc30032308c",
+        "context": {
+          "group_id": "ac8db7ba-5139-4911-ba6e-523fd9c4704b",
+          "device_id": deviceId,
+          "session_id": sessionId,
+          "source": "product"
+        },
+        "timestamp": new Date().toISOString()
+      }];
+
+      try {
+        const response = await fetch('https://azure.dev.app.thrivestack.ai/api/track', {
+          method: 'POST',
+          headers: {
+            'accept': '*/*',
+            'content-type': 'application/json',
+            'x-api-key': 'Si2vcmAwx2LatVWjnm6R0xpX4WHQUClH9Jhqj0lGd0g='
+          },
+          body: JSON.stringify(eventData)
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        console.log('ThriveStack page visit tracked successfully:', data);
+      } catch (error) {
+        console.error('Error tracking ThriveStack page visit:', error);
+      }
+    };
+
+    trackPageVisit();
+  }, []);
+
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
